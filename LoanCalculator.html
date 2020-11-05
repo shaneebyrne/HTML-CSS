@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+
+        </head>
+        <title>JavaScript Loan Calculator</title>
+        <style> /*This is a CSS style sheetL it adds style to the program ouput*/
+        .output{font-weight: bold;} /*Calulated valiues in bold */
+        #payment{text-decoration: underline;} /*For element with id="payment"*/
+        #graph{border: solid black 1px;} /*Chart has a simple border*/
+        th,td{vertical-align: top;} /*Don't center table cells*/
+        </style>
+        </head>
+        <body>
+            <!--
+                This is an HTML table with <input> elements that allow the user to enter data and <span> elements in which the program can display its results. 
+                These elements have ids like "interset" and "years". Tese ids are used
+                in the JavaScript code that fallows the table. Not that some of the input elements
+                define "onchange" or onclick" event handelers. These specify strings of
+                JavaScript code to be executed when the user enters data or clicks.
+            -->
+            <table>
+        <tr><th>Enter Loan Data:</th>
+        <td></td>
+        <th>Loan Balance, Cumulative Equality, and Interest Payments</th></tr>
+        <tr><td>Amount of the loan ($):</tr></td>
+        <td><input id="amount" onchange="calculate();"></td>
+        <td rowspan=8>
+            <canvas id = "graph" width ="400" height="250"></canvas></td></tr> 
+        <tr><td>Annual Interest (%):</td>
+            <td><input id="apr" oncharge="calculate();"></td>
+        <tr><td>Repayment Period (Years):</td>
+            <td><input id="years" oncharge = "calculate();"></td>
+        <tr><td>Zipcode (to find lenders):</td>
+            <td><input id ="zipcode" onchange = "calculate();"></td>
+        <tr><td>Approximate Payments:</td>
+            <td><button onclick = "calculate();">Calculate</button></td></tr>
+            <tr><td>Monthly Payment:</td>
+                <td>$<span class = "output" id="payment"></span></td></tr>
+            <tr><td>Total Payment:</td></tr>
+                <td>$<span class = "output" id="total"></span></td></tr>
+            <tr><td>Total Interest:</td>
+                <td>$<span class="output" id="totalinterest"></span></td></tr>
+            <tr><th>Sponsors:</th><td colspan=2>
+                Apply for your load withone of these fine lenders:
+                <div id="lenders"></div></td></tr>
+            </table>
+
+        <!--The rest of this example is JavaScript code in the<script> tag below-->
+        <!-- Normally, this script would go in the document<head> above it but it -->
+        <!-- is easier to understand here, after you've seen its GTML context. -->
+           
+        <script type="text/JavaScript">
+        "use strict"; //Use ECMAsscript 5 strict mode in browesr that support it
+        /**
+          * Thisdefines the calculate() function called by the event handlers
+          * in HTML above. The function reads values from <<input> elements, calculates load payment information, displays the results in <span> elements.
+          * It also saves the user's data, displays links to lenders, and draws a chart.
+        **/
+
+        function calculate()
+        {
+            //look up the input and output elements in the document
+            var amount = document.getElementById("amount"); //ties variable to element
+            var apr = document.getElementById("apr");
+            var years = document.getElementById("years");
+            var zipcode = document.getElementById("zipcode");
+            var payment = document.getElementById("pament");
+            var total = document.getElementById("total");
+            var totalinterest = document.getElementById("totalinterest");
+
+            //Get the user's input from input elements. Assume it is all valid.
+            //Convert interest from a percentage to a decimal, and convert from
+            //an annual rate to a monthly rate. Convert payment period in yeras
+            //to the number of monthy payments.
+            var principal = parseFloat(amount.value);
+            var interest = (parseFloat(amount.value)/100)/12;
+            var payments = parseFloat(years.value)*12;
+
+            //now compute the montly pament figure.
+             var x = Math.pow(1 + interest, payments); //Math.pow() computer powers [exponents]
+             var monthy = (principal*x*interest)/(x-1);
+            
+
+
+        }
+
+
+        </script>
+            
+
+
+
+
+    </html>
+</!DOCTYPE>

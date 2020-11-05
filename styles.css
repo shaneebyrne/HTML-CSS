@@ -1,0 +1,44 @@
+p{font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.2em;
+  color: yellow;
+ }
+h1{font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 2em;
+    color: purple;
+  }
+p.important{
+            font-size: 1.5em;
+           }  
+h3.bigger{
+           font-size: 2.5em;
+           color: #FACE;
+         }
+.typewriter{
+            font-family: "Courier New", Courier, monospace;
+            font-size: 2.5em;
+            color: green;
+           }      
+
+.special{
+         font-family: "Times New Roman";
+         font-size: 3.2em;
+         color: orange;
+        }
+
+.endLoss{
+         font-family: URW Gothic L;
+         font-size: 2.3em;
+         font-style: oblique;
+         font-stretch: ultra-expanded;
+         font-weight: 900;
+         color: white;
+        }
+
+.emphasized{
+           font-style: italic;
+           color: #E33B18;
+           }
+           
+body{
+     background-color: #27408b; 
+    }
